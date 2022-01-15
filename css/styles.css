@@ -1,0 +1,80 @@
+/* CSS Reset */
+:root {
+    background-color: chocolate;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gabriola', cursive;
+    font-size: 65%;
+}
+
+
+/* stuff */
+
+h1 {
+    font-family: 'Gabriola', cursive;
+    font-size: 5rem;
+    color: ivory;
+    margin-bottom: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+.buton {
+    font-size: 2.5rem;
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+    width: 30rem;
+    text-align: center;
+    text-decoration: none;
+    color: indigo;
+    background: royalblue;
+    border-radius: 12px;
+
+}
+
+.buton:hover {
+    cursor: crosshair;
+    box-shadow: 0 0 2rem skyblue;
+}
+
+.box {
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    padding: 2rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hide {
+    display: none;
+}
+
+.fxcol {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.fxctr {
+    justify-content: center;
+    align-items: center;
+}
+
+.justctr {
+    justify-content: center;
+}
+
+.txtctr {
+    text-align: center;
+}
