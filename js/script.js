@@ -15,8 +15,6 @@ const timeCount = document.querySelector(".clock .seconds");
 //   "</span> scored <span>" +
 //   window.localStorage.getItem("Score") +
 //   "</span>";
-const finalName = "Joe";
-const userScore = 1;
 
 start.onclick = () => {
   highscores.classList.add("activeInfo");
@@ -126,7 +124,10 @@ function showResult() {
     let writeScore = "<span>Are you mad? <p>" + userScore + "</p> ?</span>";
     scoreText.innerHTML = writeScore;
   }
-  if (userScore > window.localStorage.getItem("Score")) {
+  if (userScore == null) {
+    document.getElementById("p1").innerHTML =
+      "<span>Joe</span> scored <span>1</span>";
+  } else if (userScore > window.localStorage.getItem("Score")) {
     const finalName = prompt("Enter your name to save your score", "Player 1");
 
     window.localStorage.setItem("Player", finalName);
