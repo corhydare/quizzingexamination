@@ -9,12 +9,12 @@ const timeText = document.querySelector(".clock .gameover");
 const timeCount = document.querySelector(".clock .seconds");
 
 //  gotta make sure the saved scores are there
-document.getElementById("p1").innerHTML =
-  "<span>" +
-  window.localStorage.getItem("Player") +
-  "</span> scored <span>" +
-  window.localStorage.getItem("Score") +
-  "</span>";
+// document.getElementById("p1").innerHTML =
+//   "<span>" +
+//   window.localStorage.getItem("Player") +
+//   "</span> scored <span>" +
+//   window.localStorage.getItem("Score") +
+//   "</span>";
 
 start.onclick = () => {
   highscores.classList.add("activeInfo");
@@ -51,7 +51,7 @@ newExam.onclick = () => {
   clearInterval(counter);
   countdown(timeValue);
   timeText.textContent = "Time: ";
-  wrongbuton.classList.remove("show");
+  //   wrongbuton.classList.remove("show");
 };
 
 endExam.onclick = () => {
@@ -124,19 +124,8 @@ function showResult() {
     let writeScore = "<span>Are you mad? <p>" + userScore + "</p> ?</span>";
     scoreText.innerHTML = writeScore;
   }
-  if (userScore > window.localStorage.getItem("Score")) {
-    const finalName = prompt("Enter your name to save your score", "Player 1");
 
-    window.localStorage.setItem("Player", finalName);
-    window.localStorage.setItem("Score", userScore);
-
-    document.getElementById("p1").innerHTML =
-      "<span>" +
-      window.localStorage.getItem("Player") +
-      "</span> scored <span>" +
-      window.localStorage.getItem("Score") +
-      " points.</span>";
-  }
+  writeSavegame();
 }
 
 function countdown(time) {
@@ -156,12 +145,35 @@ function queCounter(index) {
   finalScore.innerHTML = howBad;
 }
 
-function checkHighScore(score) {
-  const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
-  const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+const max_high_scores = 5;
 
-  if (score > lowestScore) {
-    saveHighScore(score, highScores);
-    showHighScores();
-  }
+function writeSavegame() {
+  const finalName = prompt("Enter your name to save your score", "Player 1");
+  const nameList = document.getElementById("p1");
+  const scoreList = document.getElementById("s1");
+  const recentScore = localStorage.getItem("recentScore");
+
+  window.localStorage.setItem("Player", finalName);
+  window.localStorage.setItem("Score", userScore);
+
+  document.getElementById("p1").innerHTML =
+    "<span>" +
+    window.localStorage.getItem("rankList") +
+    "</span> scored <span>" +
+    window.localStorage.getItem("Score") +
+    " points.</span>";
+  rankList.innerText = recentScore;
+  const rankList = JSON.parse(localStorage.getItem("rankList")) || [];
+
+  const rank = {
+    score: userScore,
+    name: finalName,
+  };
+
+  rankList.push(rank);
+
+  rankList.sort((a, b) => {
+    return b.rank - a.rank;
+  });
+  rankList.splice(5);
 }
