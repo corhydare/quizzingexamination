@@ -82,4 +82,21 @@ let questions = [
     ],
     answer: "function myFunction()",
   },
+  {
+    qc: 11,
+    title: "How do you call a function named 'myFunction'?",
+    choices: [
+      "myFunction()",
+      "call myFunction()",
+      "call function myFunction()",
+      "myFunction(call)",
+    ],
+    answer: "myFunction()",
+  },
+  {
+    qc: 12,
+    title: "How to write an IF statement in JavaScript?",
+    choices: ["if i==5", "if (i==5)", "if i==5 then", "if i=5 then"],
+    answer: "if (i==5)",
+  },
 ];

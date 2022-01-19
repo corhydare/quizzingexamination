@@ -51,7 +51,7 @@ newExam.onclick = () => {
   clearInterval(counter);
   countdown(timeValue);
   timeText.textContent = "Time: ";
-  wrongbuton.classList.remove("show");
+  //   wrongbuton.classList.remove("show");
 };
 
 endExam.onclick = () => {
