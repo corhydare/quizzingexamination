@@ -28,7 +28,7 @@ noStopping.onclick = () => {
   newExam.onclick();
 };
 
-let timeValue = 10;
+let timeValue = 20;
 let questionsPulled = 0;
 let questionsScored = 1;
 let userScore = 0;
@@ -41,7 +41,7 @@ const endExam = finalDiv.querySelector(".buttons .reset");
 newExam.onclick = () => {
   qFrame.classList.add("activeQuiz");
   finalDiv.classList.remove("activeResult");
-  timeValue = 10;
+  timeValue = 20;
   questionsPulled = 0;
   questionsScored = 1;
   userScore = 0;
