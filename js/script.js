@@ -9,12 +9,12 @@ const timeText = document.querySelector(".clock .gameover");
 const timeCount = document.querySelector(".clock .seconds");
 
 //  gotta make sure the saved scores are there
-// document.getElementById("p1").innerHTML =
-//   "<span>" +
-//   window.localStorage.getItem("Player") +
-//   "</span> scored <span>" +
-//   window.localStorage.getItem("Score") +
-//   "</span>";
+document.getElementById("p1").innerHTML =
+  "<span>" +
+  window.localStorage.getItem("Player") +
+  "</span> scored <span>" +
+  window.localStorage.getItem("Score") +
+  "</span>";
 
 start.onclick = () => {
   highscores.classList.add("activeInfo");
@@ -51,7 +51,7 @@ newExam.onclick = () => {
   clearInterval(counter);
   countdown(timeValue);
   timeText.textContent = "Time: ";
-  //   wrongbuton.classList.remove("show");
+  wrongbuton.classList.remove("show");
 };
 
 endExam.onclick = () => {
@@ -124,8 +124,19 @@ function showResult() {
     let writeScore = "<span>Are you mad? <p>" + userScore + "</p> ?</span>";
     scoreText.innerHTML = writeScore;
   }
+  if (userScore > window.localStorage.getItem("Score")) {
+    const finalName = prompt("Enter your name to save your score", "Player 1");
 
-  writeSavegame();
+    window.localStorage.setItem("Player", finalName);
+    window.localStorage.setItem("Score", userScore);
+
+    document.getElementById("p1").innerHTML =
+      "<span>" +
+      window.localStorage.getItem("Player") +
+      "</span> scored <span>" +
+      window.localStorage.getItem("Score") +
+      " points.</span>";
+  }
 }
 
 function countdown(time) {
@@ -143,37 +154,4 @@ function countdown(time) {
 function queCounter(index) {
   let howBad = "<span>Correct answers:&nbsp;<p>" + userScore + "</p></span>";
   finalScore.innerHTML = howBad;
-}
-
-const max_high_scores = 5;
-
-function writeSavegame() {
-  const finalName = prompt("Enter your name to save your score", "Player 1");
-  const nameList = document.getElementById("p1");
-  const scoreList = document.getElementById("s1");
-  const recentScore = localStorage.getItem("recentScore");
-
-  window.localStorage.setItem("Player", finalName);
-  window.localStorage.setItem("Score", userScore);
-
-  document.getElementById("p1").innerHTML =
-    "<span>" +
-    window.localStorage.getItem("rankList") +
-    "</span> scored <span>" +
-    window.localStorage.getItem("Score") +
-    " points.</span>";
-  rankList.innerText = recentScore;
-  const rankList = JSON.parse(localStorage.getItem("rankList")) || [];
-
-  const rank = {
-    score: userScore,
-    name: finalName,
-  };
-
-  rankList.push(rank);
-
-  rankList.sort((a, b) => {
-    return b.rank - a.rank;
-  });
-  rankList.splice(5);
 }
