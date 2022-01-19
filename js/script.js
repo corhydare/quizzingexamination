@@ -126,7 +126,7 @@ function showResult() {
   }
   if (userScore == null) {
     document.getElementById("p1").innerHTML =
-      "<span>Joe</span> scored <span>1</span>";
+      "<span>Rambo</span> scored <span>1</span>";
   } else if (userScore > window.localStorage.getItem("Score")) {
     const finalName = prompt("Enter your name to save your score", "Player 1");
 
