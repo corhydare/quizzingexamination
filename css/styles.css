@@ -41,12 +41,10 @@ body {
 .start button {
     font-size: 25px;
     font-weight: 500;
-    /* color: #e27d60; */
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
-    /* background: #eee8d5; */
     color: #fdf6e3;
     background: #85DCB3;
     cursor: pointer;
