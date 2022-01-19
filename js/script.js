@@ -15,6 +15,8 @@ const timeCount = document.querySelector(".clock .seconds");
 //   "</span> scored <span>" +
 //   window.localStorage.getItem("Score") +
 //   "</span>";
+const finalName = "Joe";
+const userScore = 1;
 
 start.onclick = () => {
   highscores.classList.add("activeInfo");
