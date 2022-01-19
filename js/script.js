@@ -126,6 +126,7 @@ function showResult() {
   }
   if (userScore > window.localStorage.getItem("Score")) {
     const finalName = prompt("Enter your name to save your score", "Player 1");
+
     window.localStorage.setItem("Player", finalName);
     window.localStorage.setItem("Score", userScore);
 
@@ -153,4 +154,14 @@ function countdown(time) {
 function queCounter(index) {
   let howBad = "<span>Correct answers:&nbsp;<p>" + userScore + "</p></span>";
   finalScore.innerHTML = howBad;
+}
+
+function checkHighScore(score) {
+  const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) ?? [];
+  const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+
+  if (score > lowestScore) {
+    saveHighScore(score, highScores);
+    showHighScores();
+  }
 }
