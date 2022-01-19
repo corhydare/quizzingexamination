@@ -42,4 +42,44 @@ let questions = [
     choices: ["statements", "programs", "loops", "colors"],
     answer: "statements",
   },
+  {
+    qc: 7,
+    title: "Inside which HTML element do we put the JavaScript?:",
+    choices: ["javascript", "script", "scripting", "js"],
+    answer: "script",
+  },
+  {
+    qc: 8,
+    title:
+      "What is the correct syntax for referring to an external script called 'xxx.js'?",
+    choices: [
+      "src='xxx.js'",
+      "name='xxx.js'",
+      "href='xxx.js'",
+      "source='xxx.js'",
+    ],
+    answer: "src='xxx.js'",
+  },
+  {
+    qc: 9,
+    title: "How do you write 'Hello World' in an alert box?",
+    choices: [
+      "alerBox('Hello World');",
+      "msgBox('Hello World');",
+      "msg('Hello World');",
+      "alert('Hello World');",
+    ],
+    answer: "alert('Hello World');",
+  },
+  {
+    qc: 10,
+    title: "How do you create a function in JavaScript?",
+    choices: [
+      "function:myFunction()",
+      "function = myFunction()",
+      "function myFunction()",
+      "myFunction(function)",
+    ],
+    answer: "function myFunction()",
+  },
 ];
